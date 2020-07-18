@@ -1056,7 +1056,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
         da_scipy_values = da_scipy_values[0, :]
         assert numpy.array_equal(da_cupy_values, da_scipy_values)
 
-    def test_min_axis_0_nonzero(self):
+    def test_min_axis_0_explicit(self):
         dm_data = numpy.arange(0, 100, 1).reshape((10, 10)).astype(float)
 
         dm_sparse = scipy.sparse.csr_matrix(dm_data)
@@ -1065,7 +1065,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
                                        cupy.array(dm_sparse.indptr)),
                                       shape=(10, 10))
 
-        da_cupy_values = cupy.asnumpy(cp_matrix.min(axis=0, nonzero=True))
+        da_cupy_values = cupy.asnumpy(cp_matrix.min(axis=0, explicit=True))
         da_numpy_values = numpy.array([10, 1, 2, 3, 4,
                                        5, 6, 7, 8, 9]).astype(float)
         assert numpy.array_equal(da_cupy_values, da_numpy_values)
@@ -1099,7 +1099,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
         da_scipy_values = da_scipy_values[0, :]
         assert numpy.array_equal(da_cupy_values, da_scipy_values)
 
-    def test_min_axis_1_nonzero(self):
+    def test_min_axis_1_explicit(self):
         dm_data = numpy.arange(0, 100, 1).reshape((10, 10)).astype(float)
 
         dm_sparse = scipy.sparse.csr_matrix(dm_data)
@@ -1108,7 +1108,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
                                        cupy.array(dm_sparse.indptr)),
                                       shape=(10, 10))
 
-        da_cupy_values = cupy.asnumpy(cp_matrix.min(axis=1, nonzero=True))
+        da_cupy_values = cupy.asnumpy(cp_matrix.min(axis=1, explicit=True))
         da_numpy_values = numpy.array([1, 10, 20, 30, 40,
                                        50, 60, 70, 80, 90]).astype(float)
         assert numpy.array_equal(da_cupy_values, da_numpy_values)
@@ -1142,7 +1142,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
         da_scipy_values = da_scipy_values[0, :]
         assert numpy.array_equal(da_cupy_values, da_scipy_values)
 
-    def test_max_axis_0_nonzero(self):
+    def test_max_axis_0_explicit(self):
         dm_data = numpy.arange(0, 100, 1).reshape((10, 10)).astype(float)
 
         dm_sparse = scipy.sparse.csr_matrix(dm_data)
@@ -1151,7 +1151,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
                                        cupy.array(dm_sparse.indptr)),
                                       shape=(10, 10))
 
-        da_cupy_values = cupy.asnumpy(cp_matrix.max(axis=0, nonzero=True))
+        da_cupy_values = cupy.asnumpy(cp_matrix.max(axis=0, explicit=True))
         da_numpy_values = numpy.array([90, 91, 92, 93, 94,
                                        95, 96, 97, 98, 99]).astype(float)
         assert numpy.array_equal(da_cupy_values, da_numpy_values)
@@ -1185,7 +1185,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
         da_scipy_values = da_scipy_values[0, :]
         assert numpy.array_equal(da_cupy_values, da_scipy_values)
 
-    def test_max_axis_1_nonzero(self):
+    def test_max_axis_1_explicit(self):
         dm_data = numpy.arange(0, 100, 1).reshape((10, 10)).astype(float)
 
         dm_sparse = scipy.sparse.csr_matrix(dm_data)
@@ -1194,7 +1194,7 @@ class TestCsrMatrixScipyCompressedMinMax(unittest.TestCase):
                                        cupy.array(dm_sparse.indptr)),
                                       shape=(10, 10))
 
-        da_cupy_values = cupy.asnumpy(cp_matrix.max(axis=1, nonzero=True))
+        da_cupy_values = cupy.asnumpy(cp_matrix.max(axis=1, explicit=True))
         da_numpy_values = numpy.array([9, 19, 29, 39, 49,
                                        59, 69, 79, 89, 99]).astype(float)
         assert numpy.array_equal(da_cupy_values, da_numpy_values)
