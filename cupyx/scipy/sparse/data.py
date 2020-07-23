@@ -277,7 +277,7 @@ class _minmax_mixin(object):
           matrices
 
         """
-
+        
         if explicit:
             api_name = 'nonzero of cupyx.scipy.sparse.{}.min'.format(
                 self.__class__.__name__)
@@ -306,10 +306,11 @@ class _minmax_mixin(object):
                 its size along ``axis`` is 1.
 
         """
-
+        
         return self._arg_min_or_max(axis, out, cupy.argmax, cupy.greater)
 
     def argmin(self, axis=None, out=None, *):
+
         """
         Returns indices of minimum elements along an axis.
 
@@ -334,6 +335,7 @@ class _minmax_mixin(object):
         """
 
         return self._arg_min_or_max(axis, out, cupy.argmin, cupy.less)
+
 
 
 def _install_ufunc(func_name):
